@@ -4,7 +4,7 @@ import Plot from 'react-plotly.js';
 const BubbleChart = () => {
     var trace1 = {
         x: [1, 2, 3, 4],
-        y: [10, 11, 12, 13],
+        y: [5,10,15,20,25,30,35,40,45,50,55,60,65],
         text: ['A<br>size: 40', 'B<br>size: 60', 'C<br>size: 80', 'D<br>size: 100'],
         mode: 'markers',
         marker: {
