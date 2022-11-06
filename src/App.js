@@ -6,7 +6,7 @@ import axios from "axios"
 
 const App = () => {
   const [instagramDailyInfluencerStats,setInstagramDailyInfluencerStats]=useState();
-  // const [dates,setDates]=useState([]);
+
   useEffect(()=>{
     const fetchStats= async ()=>{
       const res = await axios.get("http://localhost:3500/stats");
@@ -16,7 +16,7 @@ const App = () => {
     fetchStats()
   },[])
 
-  console.log(instagramDailyInfluencerStats)
+  // console.log(instagramDailyInfluencerStats)
   let instagramDailyInfluencersDate= []
   instagramDailyInfluencersDate=instagramDailyInfluencerStats?.instagram?.timelineStats?.dailyInfluencers?.map((data,index)=>{
     // console.log(data.date.split('T')[0])

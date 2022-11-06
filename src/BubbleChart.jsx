@@ -72,11 +72,12 @@ const BubbleChart = (props) => {
   });
   // console.log(negativeInfluencersBubbleSize)
     
-  var trace1 = {
+  var  negativeInfluencersData= {
     x: props.sortedInstagramDailyInfluencersStats.sortedInstagramDailyInfluencersDate,
     y: props.sortedInstagramDailyInfluencersStats.instagramDailyNegativeInfluencers,
     text: instagramDailyNegativeInfluencersText,
     mode: 'markers',
+    name: 'Negative Influencers',
     marker: {
       color:bubbleNegativeInfluencersColor,
       size: negativeInfluencersBubbleSize,
@@ -84,10 +85,11 @@ const BubbleChart = (props) => {
     }
   };
   
-  var trace2 = {
+  var neutralInfluencersData = {
     x: props.sortedInstagramDailyInfluencersStats.sortedInstagramDailyInfluencersDate,
     y: props.sortedInstagramDailyInfluencersStats.instagramDailyNeutralInfluencers,
     text: instagramDailyNeutralInfluencersText,
+    name: 'neutral Influencers',
     mode: 'markers',
     marker: {
       color:bubbleNeutralInfluencersColor,
@@ -97,11 +99,12 @@ const BubbleChart = (props) => {
     }
   };
   
-  var trace3 = {
+  var positiveInfluencersData = {
     x: props.sortedInstagramDailyInfluencersStats.sortedInstagramDailyInfluencersDate,
     y: props.sortedInstagramDailyInfluencersStats.instagramDailyPositiveInfluencers,    
     text: instagramDailyPositiveInfluencersText,
     mode: 'markers',
+    name: 'Positive Influencers',
     marker: {
       color:bubblePositiveInfluencersColor,
       size:positiveInfluencersBubbleSize,
@@ -110,11 +113,11 @@ const BubbleChart = (props) => {
     }
   };
   
-  var data = [trace1, trace2, trace3];
+  var data = [negativeInfluencersData, neutralInfluencersData, positiveInfluencersData];
   
   var layout = {
     title: 'Instagram Daily Influencers Stats',
-    showlegend: false,
+    showlegend:true,
     height: 800,
     width: 800
   };
