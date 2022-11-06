@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
-//Plotly charts
-// import BarChart from './BarChart';
 import BubbleChart from './BubbleChart';
-// import PieCharts from './PieCharts';
-// import ScatteredChart from './ScatteredChart';
 
 import axios from "axios"
 
@@ -70,30 +66,12 @@ const App = () => {
     instagramDailyNegativeInfluencers,
     instagramDailyNeutralInfluencers,
   }
-
+// console.log(sortedInstagramDailyInfluencersStats)
 
 
 
   
     return (
-      // <div className='charts'>
-      //   <div>
-      //     <h3>Barchart</h3>
-      //     <BarChart/>
-      //   </div>
-      //   <div>
-      //   <h3>Bubble chart</h3>
-      //     <BubbleChart/>
-      //   </div>
-      //   <div>
-      //   <h3>Pie chart</h3>
-      //     <PieCharts/>
-      //   </div>
-      //   <div>
-      //   <h3>Scattered chart</h3>
-      //     <ScatteredChart/>
-      //   </div>
-      // </div>
       <div style={{width:'100%',height:'100%'}}>
         <BubbleChart sortedInstagramDailyInfluencersStats={sortedInstagramDailyInfluencersStats}/>
       </div>

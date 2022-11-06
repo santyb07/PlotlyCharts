@@ -27,12 +27,7 @@ const BubbleChart = (props) => {
     return negativeInfluencers
   })
 
-  let bubbleSize = [];
-  bubbleSize = props?.sortedInstagramDailyInfluencersStats?.sortedInstagramDailyInfluencersDate?.map((value)=>{
-    return 200;
-  });
-  // console.log(bubbleSize)
-
+  //*******************BUBBLE COLOR FOR INFLUENCERS*******************
   let bubblePositiveInfluencersColor=[]
   bubblePositiveInfluencersColor = props?.sortedInstagramDailyInfluencersStats?.sortedInstagramDailyInfluencersDate?.map((value)=>{
     return "rgb(44, 160, 101)";
@@ -51,6 +46,31 @@ const BubbleChart = (props) => {
   });
   // console.log(bubbleNeutralInfluencersColor)
 
+  //*******************BUBBLE SIZE FOR INFLUENCERS*******************
+  let bubbleSize= []
+  bubbleSize = props?.sortedInstagramDailyInfluencersStats?.instagramDailyPositiveInfluencers?.map((value,index)=>{
+    return 200;
+  });
+  
+  let positiveInfluencersBubbleSize = [];
+  positiveInfluencersBubbleSize = props?.sortedInstagramDailyInfluencersStats?.instagramDailyPositiveInfluencers?.map((value,index)=>{
+    return value*100;
+  });
+
+  let negativeInfluencersBubbleSize = [];
+  negativeInfluencersBubbleSize = props?.sortedInstagramDailyInfluencersStats?.instagramDailyNegativeInfluencers?.map((value,index)=>{
+    if(value===0){
+      return 100;
+    }else{
+      return value*200;
+    }
+  });
+
+  let neutralInfluencersBubbleSize = [];
+  neutralInfluencersBubbleSize = props?.sortedInstagramDailyInfluencersStats?.instagramDailyNeutralInfluencers?.map((value,index)=>{
+    return value*100;
+  });
+  // console.log(negativeInfluencersBubbleSize)
     
   var trace1 = {
     x: props.sortedInstagramDailyInfluencersStats.sortedInstagramDailyInfluencersDate,
@@ -59,7 +79,7 @@ const BubbleChart = (props) => {
     mode: 'markers',
     marker: {
       color:bubbleNegativeInfluencersColor,
-      size: bubbleSize,
+      size: negativeInfluencersBubbleSize,
       sizemode: 'area'
     }
   };
@@ -71,8 +91,7 @@ const BubbleChart = (props) => {
     mode: 'markers',
     marker: {
       color:bubbleNeutralInfluencersColor,
-      size: bubbleSize,
-      //setting 'sizeref' to lower than 1 decreases the rendered size
+      size: neutralInfluencersBubbleSize,
       // sizeref: 0.2,
       sizemode: 'area'
     }
@@ -85,8 +104,7 @@ const BubbleChart = (props) => {
     mode: 'markers',
     marker: {
       color:bubblePositiveInfluencersColor,
-      size:bubbleSize,
-      //setting 'sizeref' to less than 1, increases the rendered marker sizes
+      size:positiveInfluencersBubbleSize,
       // sizeref: 1,
       sizemode: 'area'
     }
@@ -95,7 +113,7 @@ const BubbleChart = (props) => {
   var data = [trace1, trace2, trace3];
   
   var layout = {
-    title: 'Instagram influencers stats',
+    title: 'Instagram Daily Influencers Stats',
     showlegend: false,
     height: 800,
     width: 800
